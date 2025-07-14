@@ -130,12 +130,25 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
     // Load cart from localStorage
+    // useEffect(() => {
+    //     const savedCart = localStorage.getItem("cartItems");
+    //     if (savedCart) {
+    //         setCartItems(JSON.parse(savedCart));
+    //     }
+    // }, []);
+    // Load cart from localStorage
     useEffect(() => {
-        const savedCart = localStorage.getItem("cartItems");
-        if (savedCart) {
-            setCartItems(JSON.parse(savedCart));
+        try {
+            const savedCart = localStorage.getItem("cartItems");
+            if (savedCart) {
+                setCartItems(JSON.parse(savedCart));
+            }
+        } catch (error) {
+            // Handle the error, maybe clear the corrupted data
+            console.error("Failed to parse cart data from local storage:", error);
+            localStorage.removeItem("cartItems"); // Optional: clear corrupted data
         }
-    }, []);
+    }, []); // Empty dependency array ensures this runs only once
 
     // Save cart to localStorage on change
     useEffect(() => {
@@ -207,7 +220,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
                 theme: "colored",
             });
         }
-
+       
         // Update state
         setCartItems((prev) =>
             prev

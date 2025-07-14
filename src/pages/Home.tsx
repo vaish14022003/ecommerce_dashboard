@@ -57,7 +57,7 @@ const Home: React.FC = () => {
             <Header
                 showCategory={true}
                 onSearchChange={handleSearchChange}
-                onCategoryChange={handleCategoryChange}
+                //onCategoryChange={handleCategoryChange}
             />
 
             {/* CategoriesBar triggers filter by category */}

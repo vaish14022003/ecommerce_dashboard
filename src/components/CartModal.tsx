@@ -170,7 +170,7 @@
 import React from "react";
 import Modal from "react-modal";
 import { useCart } from "../context/CartContext";
-import { X } from "lucide-react";
+//import { X } from "lucide-react";
 import { toast } from "react-toastify";
 import emptyCartAnimation from "../assets/cart.json";
 import Lottie from "lottie-react";
@@ -183,7 +183,7 @@ interface CartModalProps {
     onClose: () => void;
 }
 
-Modal.setAppElement("#root");
+Modal.setAppElement("#root");  //everything is hidden when modal is open
 
 const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
     const { cartItems, addToCart, removeFromCart, clearCart, decreaseQuantity } = useCart();
@@ -257,7 +257,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
                                 {/* Actions Right */}
                                 <div className="mt-4 md:mt-0 md:w-1/3 flex flex-col items-end gap-2">
                                     {/* Remove Button */}
-                                    <button
+                                    {/* <button
                                         onClick={() => {
                                             removeFromCart(item.id);
                                             toast.error("🗑️ Item removed from cart", {
@@ -269,7 +269,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
                                         className="text-red-600 text-sm font-medium hover:underline"
                                     >
                                         Remove
-                                    </button>
+                                    </button> */}
 
                                     {/* Quantity Controls */}
                                     <div className="flex items-center gap-2">
