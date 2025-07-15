@@ -28,42 +28,44 @@ const App: React.FC = () => {
               <main className="flex-grow">
                 <Routes>
                   <Route path="/login" element={<Login />} />
-                  <Route path="/" element={<Home />} />
-                  <Route path="/product/:id" element={<ProductDetails />} />
+                  <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
+                  <Route path="/product/:id" element=
+                  
+                  {<ProductDetails />} />
                   <Route
                     path="/user"
                     element={
-                      // <PrivateRoute>
-                      //   <UserProfile />
-                      // </PrivateRoute>
-                      <UserProfile />
+                      <PrivateRoute>
+                        <UserProfile />
+                      </PrivateRoute>
+                      //<UserProfile />
                     }
                   />
                   <Route
                     path="/settings"
                     element={
-                      // <PrivateRoute>
-                      //   <Settings />
-                      // </PrivateRoute>
-                      <Settings />
+                      <PrivateRoute>
+                        <Settings />
+                      </PrivateRoute>
+                      //<Settings />
                     }
                   />
                   <Route
                     path="/wishlist"
                     element={
-                      // <PrivateRoute>
-                      //   <Wishlist />
-                      // </PrivateRoute>
-                      <Wishlist />
+                      <PrivateRoute>
+                        <Wishlist />
+                      </PrivateRoute>
+                      // <Wishlist />
                     }
                   />
                   <Route
                     path="/DeliveryStatus"
                     element={
-                      // <PrivateRoute>
-                      //   <Wishlist />
-                      // </PrivateRoute>
-                      <DeliveryStatus />
+                      <PrivateRoute>
+                        <DeliveryStatus />
+                      </PrivateRoute>
+                      // <DeliveryStatus />
                     }
                   />
                 </Routes>

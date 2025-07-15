@@ -150,7 +150,7 @@ const DeliveryStatus: React.FC = () => {
                 </div>
             </main>
 
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };
