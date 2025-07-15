@@ -40,9 +40,16 @@ const Home: React.FC = () => {
     };
 
     const handleSearchChange = (searchTerm: string) => {
+        console.log(searchTerm);
+        // const filtered = products.filter((product) =>
+        //     product.title.toLowerCase().includes(searchTerm.toLowerCase())
+        // );
         const filtered = products.filter((product) =>
-            product.title.toLowerCase().includes(searchTerm.toLowerCase())
+            product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            product.category.toLowerCase().includes(searchTerm.toLowerCase())
         );
+    
+        console.log(filtered);
         setFilteredProducts(filtered);
         setCurrentPage(1); // ✅ reset to page 1 when search term changes
     };

@@ -18,7 +18,7 @@ interface CartModalProps {
 Modal.setAppElement("#root");  
 
 const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
-    const { cartItems, addToCart, removeFromCart, clearCart, decreaseQuantity } = useCart();
+    const { cartItems, addToCart, removeFromCart , clearCart, decreaseQuantity } = useCart();
 
     const total = cartItems
         .reduce((sum, item) => sum + item.price * item.quantity, 0)

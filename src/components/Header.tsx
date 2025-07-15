@@ -67,6 +67,7 @@ const Header: React.FC<HeaderProps> = ({
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setSearch(value);
+
         onSearchChange(value);
     };
 
@@ -90,9 +91,11 @@ const Header: React.FC<HeaderProps> = ({
                 type="text"
                 placeholder="Search products..."
                 value={search}
+                
                 onChange={handleSearchChange}
                 className="px-4 py-2 border border-gray-300 rounded w-full md:w-1/3 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
+            
 
             {/* Right Controls */}
             <div className="flex items-center gap-6 relative" ref={controlsRef}>
