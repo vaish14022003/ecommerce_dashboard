@@ -157,6 +157,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
     const addToCart = (product: Product) => {
         const existingItem = cartItems.find((item) => item.id === product.id);
+        //early exit:--
         const currentTotal = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
         if (currentTotal >= 10) {
@@ -198,6 +199,8 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         });
     };
 
+
+    
     const removeFromCart = (id: number) => {
         setCartItems((prev) => prev.filter((item) => item.id !== id));
     };

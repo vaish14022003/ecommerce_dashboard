@@ -180,7 +180,7 @@ const ProductDetails: React.FC = () => {
     return (
         <>
             {/* ✅ Header without category */}
-            <Header showCategory={false} onSearchChange={() => { }} onCategoryChange={() => { }} />
+            {/* <Header showCategory={false} onSearchChange={() => { }} onCategoryChange={() => { }} /> */}
 
             {/* ✅ Breadcrumb */}
             <div className="max-w-6xl mx-auto px-6 pt-4 text-sm text-[#1A4D2E]">
@@ -244,3 +244,24 @@ const ProductDetails: React.FC = () => {
 };
 
 export default ProductDetails;
+
+
+
+
+// useEffect(() => {
+//     const fetchProduct = async () => {
+//         if (!id) return;
+
+//         try {
+//             setLoading(true);
+//             const res = await getProductById(id);
+//             setProduct(res.data);
+//         } catch (err) {
+//             console.error("Error fetching product", err);
+//         } finally {
+//             setLoading(false);
+//         }
+//     };
+
+//     fetchProduct();
+// }, [id]);

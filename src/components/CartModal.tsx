@@ -183,7 +183,7 @@ interface CartModalProps {
     onClose: () => void;
 }
 
-Modal.setAppElement("#root");  //everything is hidden when modal is open
+Modal.setAppElement("#root");  
 
 const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
     const { cartItems, addToCart, removeFromCart, clearCart, decreaseQuantity } = useCart();
@@ -202,6 +202,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
             className="w-full min-h-screen bg-white overflow-y-auto relative"
             overlayClassName="fixed inset-0 bg-black bg-opacity-50 z-50"
         >
+            
             <Header showCategory={false} onSearchChange={() => { }} />
 
             {/* Breadcrumb */}
