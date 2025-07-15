@@ -1,71 +1,86 @@
-<!-- # React + TypeScript + Vite
+E-commerce Dashboard
+This project is a single-page e-commerce dashboard built with React. It demonstrates key frontend development skills, including API integration, state management with hooks, custom component development, client-side routing, and the use of modern libraries.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Features
+Product Catalog: View a comprehensive list of products fetched from an external API, with support for pagination to improve performance.
 
-Currently, two official plugins are available:
+Dynamic UI: Utilize an interactive product carousel for a smooth Browse experience, and see seamless transitions powered by GSAP animations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Search & Filter: Easily find products by name using a dynamic search bar or filter the catalog by various categories.
 
-## Expanding the ESLint configuration
+Breadcrumb Navigation: A custom, reusable breadcrumb component provides clear and intuitive navigation trails for a better user experience.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Product Details: Click on any product to view a dedicated details page with more information, displayed in a responsive modal.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Shopping Cart: Add products to a shopping cart, managed using a custom React Context and hooks.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+User Authentication: Implement OAuth for secure user login and a personalized experience.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Notifications: Get instant feedback with toast notifications for actions like adding an item to the cart.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Responsive Design: The UI is built with Tailwind CSS to ensure a great user experience on both desktop and mobile devices.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+🛠️ Technologies Used
+React: The core library for building the user interface, leveraging functional components and custom hooks for reusable logic.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-``` -->
+React Router: For handling client-side routing and navigation between pages.
+
+Axios: A promise-based HTTP client used to fetch data from the Fake Store API.
+
+Tailwind CSS: A utility-first CSS framework for rapid and consistent styling.
+
+Swiper: A modern slider library for creating responsive product carousels.
+
+GSAP (GreenSock Animation Platform): A professional-grade JavaScript animation library used for complex UI animations.
+
+Lottie React: A library for rendering high-quality, lightweight animations.
+
+React Toastify: A library for creating elegant and customizable notifications.
+
+React Modal: A component for handling the product details view.
+
+OAuth: A standard protocol for user authentication.
+
+⚙️ Getting Started
+Follow these steps to set up and run the project locally.
+
+Prerequisites
+Node.js (v14 or higher)
+
+npm or yarn
+
+Installation
+Clone the repository:
+
+Bash
+
+git clone https://github.com/vaish14022003/ecommerce_dashboard.git
+Navigate to the project directory:
+
+Bash
+
+cd ecommerce_dashboard
+Install dependencies:
+
+Bash
+
+npm install
+# or
+yarn install
+Running the Application
+Start the development server:
+
+Bash
+
+npm start
+# or
+yarn start
+Open your browser and navigate to http://localhost:5173. 
+
+
+
+
+
+
 
 
