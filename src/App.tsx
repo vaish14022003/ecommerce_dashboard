@@ -14,6 +14,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DeliveryStatus from "./pages/DeliveryStatus";
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import ForgotPassword from "./pages/ForgotPassword";
 
 const GOOGLE_CLIENT_ID = "979661225497-kmoh9f5q5b95n3e7h8pto1i1jr52fgp2.apps.googleusercontent.com";
 const App: React.FC = () => {
@@ -28,6 +29,7 @@ const App: React.FC = () => {
               <main className="flex-grow">
                 <Routes>
                   <Route path="/login" element={<Login />} />
+                  <Route path="/forgot-password" element={<ForgotPassword />} />
                   {/* <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} /> */}
                   <Route path="/" element={<Home />} />
                   <Route path="/product/:id" element=
