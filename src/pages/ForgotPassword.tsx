@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/PrimePick-logo-transparent.jpg";
@@ -6,20 +7,32 @@ import { toast } from "react-toastify";
 const ForgotPassword: React.FC = () => {
     const [email, setEmail] = useState("");
     const [submitted, setSubmitted] = useState(false);
+    const [emailError, setEmailError] = useState("");
+
     const navigate = useNavigate();
 
-    const validateEmail = (email: string) =>
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const validateEmail = (email: string) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        const trimmedEmail = email.trim();
+        let valid = true;
 
-        if (!validateEmail(email)) {
-            toast.error("❌ Please enter a valid email address");
-            return;
+        if (trimmedEmail.includes(" ")) {
+            setEmailError("Email should not contain spaces");
+            valid = false;
+        } else if (!validateEmail(trimmedEmail)) {
+            setEmailError("Please enter a valid email address");
+            valid = false;
+        } else {
+            setEmailError("");
         }
 
-        // Simulate backend call
+        if (!valid) return;
+
         setSubmitted(true);
         toast.success("✅ Password reset link sent to your email!", {
             position: "top-right",
@@ -27,10 +40,22 @@ const ForgotPassword: React.FC = () => {
             theme: "colored",
         });
 
-        // Optionally redirect
         setTimeout(() => {
             navigate("/login");
         }, 3000);
+    };
+
+    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value.replace(/\s/g, ""); // Remove all spaces
+
+        setEmail(value);
+
+        // Instantly show error if user tries to type or paste spaces
+        if (e.target.value.includes(" ")) {
+            setEmailError("Email should not contain spaces");
+        } else {
+            setEmailError("");
+        }
     };
 
     return (
@@ -54,10 +79,20 @@ const ForgotPassword: React.FC = () => {
                         type="email"
                         placeholder="Email address"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#FF9F29]"
+                        onChange={handleEmailChange}
+                        onKeyDown={(e) => {
+                            if (e.key === " ") {
+                                e.preventDefault(); 
+                                setEmailError("Email should not contain spaces");
+                            }
+                        }}
+                        className={`w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#FF9F29] ${emailError ? "border-red-500" : ""
+                            }`}
                         required
                     />
+                    {emailError && (
+                        <p className="text-red-500 text-sm mt-1">{emailError}</p>
+                    )}
 
                     <button
                         type="submit"
